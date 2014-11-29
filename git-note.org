@@ -1,0 +1,74 @@
+* Summary: Reading [[https://pragprog.com/book/pg_git/pragmatic-guide-to-git][Pragmatic Guide to Git]]
+| Chapters                                                 | Commands            | Examples                                                 | Notes                                            |
+| *I. Getting Started*                                     |                     |                                                          |                                                  |
+| 1. Installing Git                                        |                     |                                                          |                                                  |
+| 2. Configuring Git                                       | ~git config~        | ~git config --global user.name `microamp`~               |                                                  |
+| 3. Creating a New Repository                             | ~git init~          |                                                          |                                                  |
+|                                                          | ~git add~           | ~git add .~                                              |                                                  |
+| 4. Creating a local copy of an Existing Repository       | ~git clone~         |                                                          |                                                  |
+| *II. Working with Git*                                   |                     |                                                          |                                                  |
+| 5. Seeing What Has Changed                               | ~git status~        |                                                          |                                                  |
+| 6. Staging Changes to Commit                             | ~git add~           | ~git add --all~                                          |                                                  |
+|                                                          |                     | ~git add --update~                                       |                                                  |
+| 7. Committing Changes                                    | ~git commit~        | ~git commit -m `some commmit message`~                   |                                                  |
+| 8. Ignoring Files                                        |                     |                                                          |                                                  |
+| 9. Undoing Uncommited Changes                            | ~git reset~         | ~git reset HEAD~                                         |                                                  |
+|                                                          |                     | ~git reset HEAD -- cache.py~                             | unstage staged files (modified files)            |
+|                                                          | ~git rm~            | ~git rm --cached~                                        | do not commit staged file (new files)            |
+|                                                          | ~git checkout~      | ~git checkout -- cache.py~                               | undo all uncommited changes to staged files      |
+| 10. Moving Files in Git                                  | ~git mv~            |                                                          |                                                  |
+| 11. Deleting Files in Git                                | ~git rm~            |                                                          |                                                  |
+| 12. Sharing Changes                                      | ~git fetch~         | ~git fetch remote~                                       |                                                  |
+|                                                          | ~git pull~          | ~git pull remote~                                        |                                                  |
+|                                                          |                     | ~git pull origin~                                        |                                                  |
+|                                                          | ~git pull --rebase~ | ~git pull --rebase origin remote-branch~                 |                                                  |
+|                                                          | ~git push~          | ~git push remote branch-name~                            |                                                  |
+| *III. Organizing Your Repository with Branches and Tags* |                     |                                                          |                                                  |
+| 13. Creating and Switching Branches                      | ~git branch~        | ~git branch new~                                         |                                                  |
+|                                                          |                     | ~git branch newer 99a0de8~                               |                                                  |
+|                                                          | ~git checkout~      | ~git checkout newer~                                     |                                                  |
+|                                                          |                     | ~git checkout -b newer 99a0de8~                          | combination of above two commands                |
+| 14. Viewing Branches                                     | ~git branch~        | ~git branch -r~                                          | view all remote branches                         |
+|                                                          |                     | ~git branch -a~                                          | view all branches                                |
+|                                                          |                     | ~git branch --merged~                                    | view all branches merged into current branch     |
+|                                                          |                     | ~git branch --no-merged~                                 | view all branches not merged into current branch |
+| 15. Merging Commits Between Branches                     | ~git merge~         | ~git checkout master && git merge devel~                 | merge changes from ~devel~ to ~master~           |
+| 16. Rewriting History by Rebasing                        | ~git rebase~        | ~git rebase master~                                      | rebase current branch against master             |
+| 17. Deleting Branches                                    | ~git branch~        | ~git branch -d experiment~                               | delete branch merged into current branch         |
+|                                                          |                     | ~git branch -D experiment~                               | delete branch not merged into current branch     |
+| 18. Tagging Milestones                                   | ~git tag~           | ~git tag v1.0~                                           |                                                  |
+| *IV. Working with a Team*                                |                     |                                                          |                                                  |
+| 19. Adding and Removing Remotes                          | ~git remote add~    | ~git remote add remote-name git://github.com/user/x.git~ |                                                  |
+|                                                          | ~git remote rm~     | ~git remote rm remote-name~                              |                                                  |
+| 20. Retrieving Remote Changes                            | ~git fetch~         |                                                          |                                                  |
+| 21. Retrieving Remote Changes, Part II                   | ~git pull~          |                                                          |                                                  |
+| 22. Sending Changes to Remotes                           | ~git push~          |                                                          |                                                  |
+| 23. Handling Remote Tags and Branches                    | ~git push~          | ~git push origin v1.0~                                   | push tag v1.0 to origin                          |
+|                                                          |                     | ~git push --tags origin~                                 | push all tags to origin                          |
+|                                                          |                     | ~git push origin :beta~                                  | _delete_ remote branch 'beta'                    |
+|                                                          | ~git fetch~         | ~git fetch --tags origin~                                | fetch remote tags and update local tags          |
+| *V. Branches and Merging Revisited*                      |                     |                                                          |                                                  |
+| 24. Handling Conflicts                                   |                     |                                                          |                                                  |
+| 25. Handling Conflicts with a GUI                        |                     |                                                          |                                                  |
+| 26. Temporarily Hiding Changes                           |                     |                                                          |                                                  |
+| 27. Cherry-Picking Commits                               |                     |                                                          |                                                  |
+| 28. Controlling How You Replay Commits                   |                     |                                                          |                                                  |
+| 29. Moving Branches                                      |                     |                                                          |                                                  |
+| *VI. Working with the Repository's History*              |                     |                                                          |                                                  |
+| 30. Viewing the Log                                      |                     |                                                          |                                                  |
+| 31. Filtering the Log Output                             |                     |                                                          |                                                  |
+| 32. Comparing Differences                                |                     |                                                          |                                                  |
+| 33. Generating Statistics About Changes                  |                     |                                                          |                                                  |
+| 34. Assigning Blame                                      |                     |                                                          |                                                  |
+| *VII. Fixing Things*                                     |                     |                                                          |                                                  |
+| 35. Fixing Commits                                       |                     |                                                          |                                                  |
+| 36. Reverting Commits                                    |                     |                                                          |                                                  |
+| 37. Resetting Staged Changes and Commits                 |                     |                                                          |                                                  |
+| 38. Erasing Commits                                      |                     |                                                          |                                                  |
+| 39. Finding Bugs with Bisect                             |                     |                                                          |                                                  |
+| 40. Retrieving "Lost" Commits                            |                     |                                                          |                                                  |
+| *VIII. Moving Beyond the Basics*                         |                     |                                                          |                                                  |
+| 41. Exporting Your Repository                            |                     |                                                          |                                                  |
+| 42. Doing Some Git Housekeeping                          |                     |                                                          |                                                  |
+| 43. Syncing with Subversion                              |                     |                                                          |                                                  |
+| 44. Initializing Bare Repositories                       |                     |                                                          |                                                  |
